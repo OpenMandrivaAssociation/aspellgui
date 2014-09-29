@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   AspellGUI-0.0.6.tar.gz: 50a78f760ad2ced0a303846e5d99baccedcd3eb2
+sources:
+  AspellGUI-0.0.7.tar.gz: c3e2f5bd4a06f268e5d503a23daca217b8f492fb

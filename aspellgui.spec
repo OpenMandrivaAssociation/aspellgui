@@ -3,7 +3,7 @@
 Name:		aspellgui
 Summary:	GUI for aspell
 License:	GPLv3
-Version:	0.0.6
+Version:	0.0.7
 Release:	1
 Group:		Text tools
 URL:		http://keithhedger.hostingsiteforfree.com/pages/aspellgui/aspelgui.html
@@ -12,7 +12,7 @@ BuildRequires:  pkgconfig(Qt5Widgets)
 BuildRequires:  aspell-devel
 BuildRequires:	desktop-file-utils
 BuildRequires:	qmake5
-BuildRequires:	pkgconfig(gtk+-2.0)
+
 
 %description
 GUI for aspell, just launch it from the accessories menu and 
@@ -28,7 +28,7 @@ that\'s all there is to it.
 perl -pi -e "s|gtk-update-icon-cache --ignore-theme-index --force /usr/share/icons/hicolor||"  AspellGUI/app/Makefile.in
 
 %build
-%configure-qt
+%configure --enable-qt5 
 %make
 
 
