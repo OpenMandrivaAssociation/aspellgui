@@ -4,7 +4,7 @@ Name:		aspellgui
 Summary:	GUI for aspell
 License:	GPLv3
 Version:	0.0.7
-Release:	1
+Release:	2
 Group:		Text tools
 URL:		http://keithhedger.hostingsiteforfree.com/pages/aspellgui/aspelgui.html
 Source:		http://keithhedger.hostingsiteforfree.com/zips/aspellgui/%{oname}-%{version}.tar.gz
@@ -28,25 +28,15 @@ that\'s all there is to it.
 perl -pi -e "s|gtk-update-icon-cache --ignore-theme-index --force /usr/share/icons/hicolor||"  AspellGUI/app/Makefile.in
 
 %build
-%configure --enable-qt5 
+%configure --prefix=/usr --enable-qt5
+make clean 
 %make
 
 
 %install
-%makeinstall_std 
-# we install this in %doc
-rm -fr %{buildroot}%{_datadir}/AspellGUI/docs/gpl-3.0.txt
-rm -fr %{buildroot}%{_datadir}/AspellGUI/pixmaps/AspellGUI.desktop
-rm -fr %{buildroot}%{_datadir}/pixmaps/AspellGUI/pixmaps/README
-rm -fr %{buildroot}%{_datadir}/AspellGUI/pixmaps/AspellGUI.png
-rm -fr %{buildroot}%{_datadir}/AspellGUI/pixmaps/AspellGUI48.png
-rm -fr %{buildroot}%{_datadir}/AspellGUI/pixmaps/README
+%makeinstall_std
+desktop-file-validate %{buildroot}%{_datadir}/applications/AspellGUI.desktop 
 
-desktop-file-install AspellGUI/resources/pixmaps/AspellGUI.desktop \
-  --dir=%{buildroot}%{_datadir}/applications
-  
-
-  
 
 %files
 %doc  ChangeLog README AspellGUI/resources/docs/gpl-3.0.txt
@@ -54,7 +44,8 @@ desktop-file-install AspellGUI/resources/pixmaps/AspellGUI.desktop \
 %{_datadir}/applications/%{oname}.desktop
 %{_datadir}/pixmaps/AspellGUI.png
 %{_datadir}/pixmaps/AspellGUI48.png
-%{_iconsdir}/hicolor/256x256/apps/AspellGUI.png
+%{_iconsdir}/hicolor/*/apps/AspellGUI.png
+%{_datadir}/AspellGUI/
  
  
  
