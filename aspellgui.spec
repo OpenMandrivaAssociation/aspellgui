@@ -6,7 +6,7 @@ License:	GPLv3
 Version:	0.0.6
 Release:	1
 Group:		Text tools
-URL:		http://keithhedger.hostingsiteforfree.com/pages/aspellgui/aspelgui.html
+URL:		https://keithhedger.hostingsiteforfree.com/pages/aspellgui/aspelgui.html
 Source:		http://keithhedger.hostingsiteforfree.com/zips/aspellgui/%{oname}-%{version}.tar.gz
 BuildRequires:  pkgconfig(Qt5Widgets)
 BuildRequires:  aspell-devel
